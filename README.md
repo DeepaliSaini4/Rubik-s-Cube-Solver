@@ -97,6 +97,87 @@ This project involved in-depth exploration of both software engineering practice
 - Black-box abstraction via permutation indexing  
 
 ---
+Absolutely! Here's an **Ignite Map (high-level class interaction and inheritance overview)** for your **Rubik’s Cube Solver** project. This gives you a bird’s eye view of how your C++ classes are designed and how they interact with each other:
+
+---
+
+## Class Structure Overview
+
+###  **Cube Representation Hierarchy**
+
+```
+RubiksCube   <-- Abstract Base Class (Interface)
+│
+├── RubiksCube3DArray       <-- 3D array representation
+├── RubiksCube1DArray       <-- 1D array representation
+└── RubiksCubeBitboard      <-- Bitboard representation
+```
+
+- **RubiksCubeBase**: Defines abstract methods like `isSolved()`, `rotateFace()`, `applyMove()` etc.
+- All three derived classes implement these methods based on their internal state formats.
+
+---
+
+### **Solvers Hierarchy (Template-based)**
+
+```
+Solver<RubiksCubeType>     <-- Template Base Class
+│
+├── BFSSolver<RubiksCubeType>     <-- Breadth-First Search
+├── DFSSolver<RubiksCubeType>     <-- Depth-First Search
+├── IDDFSSolver<RubiksCubeType>   <-- Iterative Deepening DFS
+└── IDAStarSolver<RubiksCubeType> <-- Iterative Deepening A*
+        │
+        └── Uses Heuristic (PatternDatabase)
+```
+
+- Solvers are **templated** to work with any cube representation.
+- Each solver implements a standard method like `solve()` and maintains internal logic for state traversal.
+- `IDAStarSolver` uses a heuristic function for guided traversal — provided by the Pattern Database.
+
+---
+
+### **Heuristic & Database Components**
+
+```
+PatternDatabaseBase        <-- Abstract Base for all Pattern DBs
+│
+└── CornerPatternDatabase  <-- Implements corner pattern heuristic
+         │
+         └── Uses PermutationIndexer
+```
+
+- **CornerPatternDatabase** stores minimal move values for each possible corner configuration.
+- It uses `PermutationIndexer` to convert cube states into unique indices for lookup.
+- The `IDAStarSolver` uses this heuristic during search.
+
+---
+
+### **Utilities & Helpers**
+
+```
+PermutationIndexer
+│
+├── encode(permutation)   --> Converts to unique index
+└── decode(index)         --> Reverses the index to permutation
+```
+
+- Essential for storing and retrieving cube configurations in the Pattern Database.
+
+---
+
+### **I/O Handling**
+
+```
+PatternDatabase
+│
+├── saveToFile(filename)     <-- Serializes DB to disk
+└── loadFromFile(filename)   <-- Loads precomputed DB
+```
+
+- Helps avoid recomputation of pattern databases every time.
+
+---
 
 ## Build Instructions
 
