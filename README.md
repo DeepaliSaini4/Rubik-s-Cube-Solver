@@ -71,7 +71,7 @@ The **Permutation Indexer** class is responsible for encoding and decoding permu
 To facilitate internal visualization and implementation logic, the cube is represented in a **2D planar format** during development.
 
 <p align="center">
-  <img src="https://i.imgur.com/n3uR8Kb.png" width="400" alt="Rubik's Cube Planar View"/>
+  <img src="assets/rubiks_planar_view.png" width="400" alt="Rubik's Cube Planar View"/>
 </p>
 
 Each square represents a facelet, and the structure maps directly to face indices and rotation logic in the codebase. This view helps visualize transformations clearly, especially in the 3D and 1D implementations.
