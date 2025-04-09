@@ -196,7 +196,7 @@ Make sure to build the Pattern Database (or load an existing one) before running
 
 - **Korf, R. E. (1997).**  
   *Finding optimal solutions to Rubik’s Cube using pattern databases.*  
-  [Read the paper here](https://cse.sc.edu/~mgv/csce580sp15/korfRubik.pdf)
+  [Read the paper here](https://www.cs.princeton.edu/courses/archive/fall06/cos402/papers/korfrubik.pdf)
 
 ---
 
