@@ -74,7 +74,7 @@ To facilitate internal visualization and implementation logic, the cube is repre
   <img src="assets/rubiks_planar_view.png" width="400" alt="Rubik's Cube Planar View"/>
 </p>
 
-Each square represents a facelet, and the structure maps directly to face indices and rotation logic in the codebase. This view helps visualize transformations clearly, especially in the 3D and 1D implementations.
+Each square represents a cubie, and the structure maps directly to face indices and rotation logic in the codebase. This view helps visualize transformations clearly, especially in the 3D and 1D implementations.
 
 ---
 
